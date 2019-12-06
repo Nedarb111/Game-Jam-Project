@@ -20,6 +20,9 @@ func _physics_process(delta):
 		if b.is_in_group("Enemy"):
 			b.queue_free()
 			queue_free()
+		if b.is_in_group("Boss"):
+			b.hit()
+			queue_free()
   
 	
 	
