@@ -5,6 +5,8 @@ const GRAVITY = 10
 const JUMP_POWER = -500
 const FLOOR = Vector2(0, -1)
 
+onready var Boss = get_node("root/boss")
+
 const PLASMABLAST = preload("res://Scenes/PlasmaBlast.tscn")
 
 onready var World = get_node("/root/game")
@@ -70,22 +72,14 @@ func _physics_process(delta):
 	 if position.y > get_viewport_rect().end.y:
 			get_tree().change_scene("res://Scenes/YouLose.tscn")
 	
-	move_and_slide(velocity, FLOOR)
+	velocity = move_and_slide(velocity, FLOOR)
 
 
 	
 	
 
-func _on_Crate_body_entered(body):
-	if can_move:
-		World.update_lives(-1)
-		velocity *= -1
-		velocity.y = jump_speed
-		move_and_slide(velocity, Vector2.UP, true)
-		can_move = false
-	yield(get_tree().create_timer(1), "timeout")
-	can_move = true
 
+	
 func _on_AnimatedSprite_animation_finished():
 	is_attacking = false
 
@@ -98,3 +92,21 @@ func _on_Player_animation_finished():
 
 func _on_Area2D_body_entered(body):
 	get_tree().change_scene("res://Scenes/Transition.tscn")
+
+
+func _on_Enemy_body_entered(body):
+	if can_move:
+		World.update_lives(-1)
+		velocity *= -1
+		velocity.y = jump_speed
+		move_and_slide(velocity, Vector2.UP, true)
+		can_move = false
+	yield(get_tree().create_timer(1), "timeout")
+	can_move = true
+
+
+
+
+
+
+
