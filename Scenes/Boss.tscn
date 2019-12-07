@@ -2,17 +2,7 @@
 
 [ext_resource path="res://Scripts/BossSceneScript.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=2]
-[ext_resource path="res://Assets/31-ANC-A/sprite_1.png" type="Texture" id=3]
-[ext_resource path="res://Assets/31-ANC-A/sprite_0.png" type="Texture" id=4]
-[ext_resource path="res://Assets/31-ANC-A/sprite_7.png" type="Texture" id=5]
-[ext_resource path="res://Assets/sprite_0.png" type="Texture" id=6]
-[ext_resource path="res://Assets/31-ANC-A Bunnyhop/sprite_1.png" type="Texture" id=7]
-[ext_resource path="res://Assets/31-ANC-A Bunnyhop/sprite_2.png" type="Texture" id=8]
-[ext_resource path="res://Assets/31-ANC-A Walking/sprite_0.png" type="Texture" id=9]
-[ext_resource path="res://Assets/31-ANC-A Walking/sprite_2.png" type="Texture" id=10]
-[ext_resource path="res://Assets/31-ANC-A Walking/sprite_4.png" type="Texture" id=11]
-[ext_resource path="res://Assets/31-ANC-A Walking/sprite_3.png" type="Texture" id=12]
-[ext_resource path="res://Assets/31-ANC-A Walking/sprite_00.png" type="Texture" id=13]
+
 [ext_resource path="res://Assets/Game Jam song boss.wav" type="AudioStream" id=14]
 [ext_resource path="res://Scripts/AudioStreamPlayer2D.gd" type="Script" id=15]
 [ext_resource path="res://Assets/Tile 3-1.png.png" type="Texture" id=16]
@@ -23,25 +13,17 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "idle",
-"speed": 2.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": false,
-"name": "jump",
+"name": "attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+
 "loop": true,
 "name": "run",
 "speed": 4.0
 }, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "attack",
-"speed": 5.0
+
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
