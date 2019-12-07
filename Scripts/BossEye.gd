@@ -3,17 +3,10 @@ extends RigidBody2D
 
 var BLAST = preload("res://Scenes/EnemyBlast.tscn")
 
-var lives = 5
 
 func _ready():
 	$AnimatedSprite.play("Boss")
 
-func hit():
-	lives -= 1
-	if lives <= 0:
-		#you win
-		#explosion?
-		queue_free()
 
 func _on_Timer_timeout():
 	if rand_range(0,8) > 0.1:
