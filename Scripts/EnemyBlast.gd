@@ -21,7 +21,6 @@ func _physics_process(delta):
 		if b.name == "Player":
 			Game.update_lives(-1)
 			queue_free()
-  
 	
 	
 
