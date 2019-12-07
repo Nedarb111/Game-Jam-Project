@@ -21,7 +21,10 @@ func _physics_process(delta):
 	for b in bodies:
 		if b.is_in_group("Enemy"):
 			b.queue_free()
-
+	for a in bodies:
+		if a.name == "BossEye":
+			Boss.update_bosslives(-1)
+			
   
 
 	
