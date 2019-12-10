@@ -10,14 +10,15 @@
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "run",
-"speed": 2.7
+"name": "walk",
+"speed": 2.75
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 27.325, 29.3623 )
+extents = Vector2( 30.1525, 29.1642 )
 
 [node name="RigidBody2D" type="RigidBody2D"]
+mode = 3
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -26,8 +27,8 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2.851, 2.965 )
 frames = SubResource( 1 )
-animation = "run"
+animation = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.32037, -0.440125 )
+position = Vector2( 0.832699, -7.26758 )
 shape = SubResource( 2 )

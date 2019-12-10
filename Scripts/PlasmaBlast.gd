@@ -4,8 +4,7 @@ const SPEED = 500
 var velocity = Vector2()
 var direction = 1
 
-onready var Game = get_node("root/game")
-onready var Boss = get_node("/root/Boss")
+onready var Game = get_node("/root/Boss")
 
 
 func set_plasmablast_direction(dir):
@@ -21,9 +20,10 @@ func _physics_process(delta):
 	for b in bodies:
 		if b.is_in_group("Enemy"):
 			b.queue_free()
-	for a in bodies:
-		if a.name == "BossEye":
-			Boss.update_bosslives(-1)
+			queue_free()
+		if b.is_in_group("Boss"):
+			Game.update_boss(-1)
+			queue_free()
 			
   
 
@@ -31,3 +31,11 @@ func _physics_process(delta):
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+
+
+func _on_Boss_ready():
+	var bodies = get_overlapping_bodies()
+	for b in bodies:
+		if b.name == 'Boss2':
+			Game.update_boss(-1)
+

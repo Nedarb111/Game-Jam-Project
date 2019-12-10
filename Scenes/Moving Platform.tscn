@@ -6,6 +6,7 @@
 extents = Vector2( 63.8375, 48.0073 )
 
 [node name="Moving Platform" type="KinematicBody2D"]
+motion/sync_to_physics = true
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.396, 0.301 )

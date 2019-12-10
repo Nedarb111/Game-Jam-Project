@@ -6,7 +6,7 @@ var direction = 1
 
 
 onready var Game = get_node("/root/Boss")
-    
+
 func set_plasmablast_direction(dir):
 	direction = dir
 	if dir == -1:

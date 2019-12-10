@@ -1,12 +1,12 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=3]
-[ext_resource path="res://Assets/frames/Monster 1.png" type="Texture" id=4]
-[ext_resource path="res://Assets/frames/Monster 2.png" type="Texture" id=5]
-[ext_resource path="res://Assets/frames/Monster 2 - Copy.png" type="Texture" id=6]
-[ext_resource path="res://Assets/frames/Monster 1 - Copy.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Enemy(backwards).tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Enemy(backwards).gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Enemy(smallpathbackwards).tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Enemy(smallpath).tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Enemy2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/House.png" type="Texture" id=8]
 [ext_resource path="res://assets/New-Piskel-_17_.png" type="Texture" id=9]
 [ext_resource path="res://assets/Telephone poll.png" type="Texture" id=10]
@@ -42,13 +42,14 @@
 [ext_resource path="res://assets/Spike.png" type="Texture" id=40]
 [ext_resource path="res://Scenes/Moving Platform.tscn" type="PackedScene" id=41]
 [ext_resource path="res://Scenes/Moving Platform2.tscn" type="PackedScene" id=42]
+[ext_resource path="res://Scenes/PauseScreen.tscn" type="PackedScene" id=43]
 
 [sub_resource type="Animation" id=1]
 resource_name = "plATFORMS"
 length = 8.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("enemies/Enemy:position")
+tracks/0/path = NodePath("Moving Platforms/Moving Platform:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -57,10 +58,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 844.556, 452.537 ), Vector2( 536.854, 448.925 ) ]
+"values": [ Vector2( 8223.91, 339.346 ), Vector2( 9253.43, 339.842 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Moving Platforms/Moving Platform:position")
+tracks/1/path = NodePath("Moving Platforms/KinematicBody2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -69,10 +70,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 8223.91, 339.346 ), Vector2( 9253.43, 339.842 ) ]
+"values": [ Vector2( 11058.3, 353.257 ), Vector2( 10663.4, 355.65 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Moving Platforms/KinematicBody2D:position")
+tracks/2/path = NodePath("Moving Platforms/KinematicBody2D2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -81,10 +82,10 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 11058.3, 353.257 ), Vector2( 10663.4, 355.65 ) ]
+"values": [ Vector2( 10010.8, 353.257 ), Vector2( 10536.1, 355.651 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Moving Platforms/KinematicBody2D2:position")
+tracks/3/path = NodePath("enemies/Enemy1:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -93,10 +94,10 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 10010.8, 353.257 ), Vector2( 10536.1, 355.651 ) ]
+"values": [ Vector2( 844.098, 463.251 ), Vector2( 536.505, 463.074 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("enemies/Enemy2:position")
+tracks/4/path = NodePath("enemies/Enemy(backwards)/RigidBody2D:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -105,10 +106,10 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1734.53, 259.11 ), Vector2( 1413.64, 258.623 ) ]
+"values": [ Vector2( 2065.88, 270.187 ), Vector2( 2373.47, 270.187 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("enemies/Enemy3:position")
+tracks/5/path = NodePath("enemies/Enemy2:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -117,46 +118,133 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 2159.42, 258.859 ), Vector2( 2388.83, 258.857 ) ]
+"values": [ Vector2( 1727.39, 270.187 ), Vector2( 1419.8, 270.187 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("enemies/Enemy1:position")
+tracks/6/path = NodePath("enemies/Enemy(smallpathbackwards)/RigidBody2D:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3350.96, 262.92 ), Vector2( 3447.17, 262.92 ), Vector2( 3350.96, 262.92 ), Vector2( 3447.92, 263.042 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("enemies/Enemy(smallpath)/RigidBody2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4166.25, 240.508 ), Vector2( 4069.23, 240.508 ), Vector2( 4166.39, 240.508 ), Vector2( 4068.93, 240.508 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("enemies/Enemy(backwards)/RigidBody2D2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 844.098, 463.251 ), Vector2( 536.505, 463.074 ) ]
+"values": [ Vector2( 5068.32, 270.735 ), Vector2( 5375.91, 270.735 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("enemies/Enemy(backwards)/RigidBody2D3:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 6698.62, 366.834 ), Vector2( 7006.21, 366.834 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("enemies/Enemy(second)/RigidBody2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 5755.42, 458.293 ), Vector2( 6111.54, 457.887 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("enemies/Enemy(second)/RigidBody2D2:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 7704.33, 362.351 ), Vector2( 8060.45, 362.351 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("enemies/Enemy(second)/RigidBody2D3:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 9445.05, 261.197 ), Vector2( 9801.17, 261.197 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("enemies/Enemy(second)/RigidBody2D4:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 11248.4, 260.037 ), Vector2( 11604.5, 260.037 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("enemies/Enemy(second)/RigidBody2D5:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 6184.7, 456.151 ), Vector2( 6540.82, 456.151 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("enemies/Enemy(second)/RigidBody2D6:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2487.59, 455.527 ), Vector2( 2839.93, 455.527 ) ]
 }
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "walk2",
-"speed": 2.8
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "walk",
-"speed": 2.7
-}, {
-"frames": [  ],
-"loop": true,
-"name": "walk3",
-"speed": 5.0
-} ]
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 27.5759, 26.6902 )
-
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 115.908, 70.1605 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
@@ -179,19 +267,19 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 27, 53.205 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 67.1925, 53.848 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 63.4501, 48.3263 )
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 47.9736, 32.4746 )
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 47.9736, 236.681 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
 "frames": [ ExtResource( 33 ), ExtResource( 34 ) ],
 "loop": true,
@@ -199,7 +287,7 @@ animations = [ {
 "speed": 2.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=11]
+[sub_resource type="CapsuleShape2D" id=9]
 radius = 56.2183
 height = 52.6207
 
@@ -212,68 +300,89 @@ anims/plATFORMS = SubResource( 1 )
 
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="Enemy1" parent="enemies" instance=ExtResource( 2 )]
-position = Vector2( 834.321, 445.793 )
-
-[node name="Enemy" type="RigidBody2D" parent="enemies" groups=[
+[node name="Enemy1" parent="enemies" groups=[
 "Enemy",
-]]
-position = Vector2( 1595.15, 254.842 )
-mode = 2
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
+] instance=ExtResource( 2 )]
+position = Vector2( 844.098, 463.251 )
+can_sleep = false
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="enemies/Enemy"]
-position = Vector2( -1.78943, 9.77341 )
-scale = Vector2( 2.85102, 2.96526 )
-frames = SubResource( 2 )
-animation = "walk3"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Enemy"]
-position = Vector2( 0.581421, 11.2638 )
-shape = SubResource( 3 )
-
-[node name="Enemy2" type="RigidBody2D" parent="enemies" groups=[
+[node name="Enemy2" parent="enemies" groups=[
 "Enemy",
-]]
-position = Vector2( 1716.8, 253.57 )
-mode = 2
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
+] instance=ExtResource( 2 )]
+position = Vector2( 1727.39, 270.187 )
+can_sleep = false
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="enemies/Enemy2"]
-position = Vector2( -1.7894, 9.77341 )
-scale = Vector2( 2.85102, 2.96526 )
-frames = SubResource( 2 )
-animation = "walk3"
+[node name="Enemy(backwards)" type="Node2D" parent="enemies"]
+editor/display_folded = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Enemy2"]
-position = Vector2( 0.581543, 11.2638 )
-shape = SubResource( 3 )
-
-[node name="Enemy3" type="RigidBody2D" parent="enemies" groups=[
+[node name="RigidBody2D" parent="enemies/Enemy(backwards)" groups=[
 "Enemy",
-]]
-position = Vector2( 2159.42, 258.859 )
-mode = 2
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
+] instance=ExtResource( 3 )]
+position = Vector2( 2065.88, 270.187 )
+mode = 3
+script = ExtResource( 4 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="enemies/Enemy3"]
-position = Vector2( -1.7894, 9.77341 )
-scale = Vector2( 2.85102, 2.96526 )
-frames = SubResource( 2 )
-animation = "walk3"
+[node name="RigidBody2D2" parent="enemies/Enemy(backwards)" groups=[
+"Enemy",
+] instance=ExtResource( 3 )]
+position = Vector2( 5068.32, 270.735 )
+mode = 3
+script = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemies/Enemy3"]
-position = Vector2( 0.581543, 11.2638 )
-shape = SubResource( 3 )
+[node name="RigidBody2D3" parent="enemies/Enemy(backwards)" groups=[
+"Enemy",
+] instance=ExtResource( 3 )]
+position = Vector2( 6698.62, 366.834 )
+mode = 3
+script = ExtResource( 4 )
+
+[node name="Enemy(smallpathbackwards)" type="Node2D" parent="enemies"]
+editor/display_folded = true
+
+[node name="RigidBody2D" parent="enemies/Enemy(smallpathbackwards)" groups=[
+"Enemy",
+] instance=ExtResource( 5 )]
+position = Vector2( 3350.96, 262.92 )
+
+[node name="Enemy(smallpath)" type="Node2D" parent="enemies"]
+editor/display_folded = true
+
+[node name="RigidBody2D" parent="enemies/Enemy(smallpath)" groups=[
+"Enemy",
+] instance=ExtResource( 6 )]
+position = Vector2( 4166.25, 240.508 )
+
+[node name="Enemy(second)" type="Node2D" parent="enemies"]
+
+[node name="RigidBody2D" parent="enemies/Enemy(second)" groups=[
+"Enemy",
+] instance=ExtResource( 7 )]
+position = Vector2( 5755.42, 458.293 )
+
+[node name="RigidBody2D5" parent="enemies/Enemy(second)" groups=[
+"Enemy",
+] instance=ExtResource( 7 )]
+position = Vector2( 6184.7, 456.151 )
+
+[node name="RigidBody2D2" parent="enemies/Enemy(second)" groups=[
+"Enemy",
+] instance=ExtResource( 7 )]
+position = Vector2( 7704.33, 362.351 )
+
+[node name="RigidBody2D6" parent="enemies/Enemy(second)" groups=[
+"Enemy",
+] instance=ExtResource( 7 )]
+position = Vector2( 2487.59, 455.527 )
+
+[node name="RigidBody2D3" parent="enemies/Enemy(second)" groups=[
+"Enemy",
+] instance=ExtResource( 7 )]
+position = Vector2( 9445.05, 261.197 )
+
+[node name="RigidBody2D4" parent="enemies/Enemy(second)" groups=[
+"Enemy",
+] instance=ExtResource( 7 )]
+position = Vector2( 11248.4, 260.037 )
 
 [node name="House" type="Node2D" parent="."]
 editor/display_folded = true
@@ -292,18 +401,18 @@ texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House/StaticBody2D"]
 position = Vector2( 7577.61, 189.213 )
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="Trees(back)" type="Node2D" parent="."]
 editor/display_folded = true
 
 [node name="Tree3" type="Sprite" parent="Trees(back)"]
-position = Vector2( 430.663, 431.99 )
+position = Vector2( 431.686, 433.866 )
 scale = Vector2( 0.3125, 0.386364 )
 texture = ExtResource( 9 )
 
 [node name="Tree5" type="Sprite" parent="Trees(back)"]
-position = Vector2( 6926.64, 343.141 )
+position = Vector2( 6926.87, 337.651 )
 scale = Vector2( 0.3125, 0.386364 )
 texture = ExtResource( 9 )
 
@@ -346,7 +455,7 @@ scale = Vector2( 0.385215, 0.413064 )
 texture = ExtResource( 10 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 926.794, 357.622 )
+position = Vector2( 11749.9, -394.255 )
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
@@ -355,16 +464,16 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
 position = Vector2( 0.0192566, 0.024231 )
 scale = Vector2( 0.324136, 0.323203 )
-frames = SubResource( 5 )
+frames = SubResource( 3 )
 animation = "jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( 5.22818, 4.66531 )
 scale = Vector2( 1.06753, 0.829703 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="Position2D" type="Position2D" parent="Player"]
-position = Vector2( 68.5581, 4.96552 )
+position = Vector2( 67.2378, 16.8489 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -382,6 +491,9 @@ autoplay = true
 attenuation = 0.353553
 script = ExtResource( 24 )
 
+[node name="Timer" type="Timer" parent="Player"]
+wait_time = 0.1
+
 [node name="Ground" type="Node2D" parent="."]
 editor/display_folded = true
 
@@ -398,7 +510,7 @@ scale = Vector2( 0.322604, 0.299461 )
 texture = ExtResource( 25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D12"]
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="StaticBody2D13" type="StaticBody2D" parent="Ground"]
 editor/display_folded = true
@@ -413,7 +525,7 @@ scale = Vector2( 0.322604, 0.299461 )
 texture = ExtResource( 25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D13"]
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="StaticBody2D14" type="StaticBody2D" parent="Ground"]
 editor/display_folded = true
@@ -428,9 +540,10 @@ scale = Vector2( 0.322604, 0.299461 )
 texture = ExtResource( 25 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D14"]
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="lives + etc" type="Node2D" parent="CanvasLayer"]
 position = Vector2( -824.515, -1.50726 )
@@ -465,10 +578,10 @@ texture = ExtResource( 26 )
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="VideoPlayer" type="VideoPlayer" parent="ParallaxBackground"]
-margin_left = -4.69638
-margin_top = 2.06158
-margin_right = 1019.3
-margin_bottom = 601.062
+margin_left = -96.6407
+margin_top = -884.185
+margin_right = 927.356
+margin_bottom = -285.184
 stream = ExtResource( 27 )
 autoplay = true
 script = ExtResource( 28 )
@@ -490,7 +603,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall4" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -506,7 +619,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall4"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall2" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -522,7 +635,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall2"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall8" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -538,7 +651,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall8"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall27" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -554,7 +667,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall27"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall31" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -570,7 +683,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall31"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall13" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -586,7 +699,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall13"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall42" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -602,11 +715,11 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall42"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall51" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
-position = Vector2( 11238.2, 546.829 )
+position = Vector2( 11239.3, 546.829 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -618,7 +731,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall51"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall16" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -634,7 +747,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall16"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall36" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -650,7 +763,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall36"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall63" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -666,11 +779,11 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall63"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall52" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
-position = Vector2( 11238.6, 450.72 )
+position = Vector2( 11239.3, 450.649 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -682,7 +795,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall52"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall20" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -698,7 +811,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall20"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall38" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -714,7 +827,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall38"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall62" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -730,7 +843,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall62"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall70" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -746,7 +859,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall70"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall75" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -762,7 +875,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall75"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall50" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -778,7 +891,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall50"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall3" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -794,7 +907,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall3"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall9" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -810,7 +923,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall9"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall26" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -826,7 +939,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall26"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall29" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -842,7 +955,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall29"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall11" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -858,7 +971,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall11"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall44" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -874,7 +987,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall44"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall56" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -890,7 +1003,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall56"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall17" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -906,7 +1019,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall17"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall35" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -922,7 +1035,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall35"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall67" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -938,7 +1051,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall67"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall57" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -954,7 +1067,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall57"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall19" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -970,7 +1083,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall19"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall34" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -986,7 +1099,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall34"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall66" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1002,7 +1115,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall66"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall71" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1018,7 +1131,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall71"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall77" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1034,7 +1147,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall77"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall55" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1050,11 +1163,11 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall55"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall5" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
-position = Vector2( 1326.48, 548.978 )
+position = Vector2( 1326.48, 550.402 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1066,7 +1179,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall5"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall10" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1082,7 +1195,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall10"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall12" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1098,7 +1211,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall12"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall45" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1114,7 +1227,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall45"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall58" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1130,7 +1243,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall58"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall18" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1146,7 +1259,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall18"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall39" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1162,7 +1275,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall39"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall64" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1178,7 +1291,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall64"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall53" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1194,7 +1307,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall53"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall22" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1210,7 +1323,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall22"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall43" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1226,11 +1339,11 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall43"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall65" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
-position = Vector2( 12128.3, 454.435 )
+position = Vector2( 12128.4, 454.266 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1242,11 +1355,11 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall65"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall73" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
-position = Vector2( 12635.8, 555.295 )
+position = Vector2( 12635.8, 555.117 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1258,7 +1371,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall73"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall74" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1274,11 +1387,11 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall74"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall54" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
-position = Vector2( 11620.6, 354.671 )
+position = Vector2( 11620.6, 354.497 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1290,7 +1403,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall54"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall47" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1306,7 +1419,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall47"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall23" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1322,7 +1435,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall23"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall24" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1338,7 +1451,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall24"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall25" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1354,7 +1467,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall25"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall30" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1370,7 +1483,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall30"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall6" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1386,7 +1499,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall6"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall7" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1402,7 +1515,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall7"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall28" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1418,7 +1531,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall28"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall32" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1434,7 +1547,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall32"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall14" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1450,7 +1563,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall14"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall41" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1466,7 +1579,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall41"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall61" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1482,7 +1595,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall61"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall15" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1498,7 +1611,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall15"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall37" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1514,7 +1627,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall37"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall68" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1530,7 +1643,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall68"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall59" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1546,7 +1659,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall59"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall21" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1562,7 +1675,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall21"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall40" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1578,7 +1691,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall40"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall69" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1594,7 +1707,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall69"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall72" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1610,7 +1723,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall72"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall76" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1626,7 +1739,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall76"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall60" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1642,7 +1755,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall60"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall46" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1658,7 +1771,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall46"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="rock wall33" type="StaticBody2D" parent="Rock walls"]
 editor/display_folded = true
@@ -1674,7 +1787,7 @@ texture = ExtResource( 29 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rock walls/rock wall33"]
 position = Vector2( 0.00231934, -0.000732422 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Ground2" type="Node2D" parent="."]
 editor/display_folded = true
@@ -1692,7 +1805,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D16" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1707,7 +1820,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D16"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D20" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1722,7 +1835,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D20"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1737,7 +1850,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D3"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D17" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1752,7 +1865,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D17"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D21" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1767,7 +1880,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D21"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1782,7 +1895,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D5"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D14" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1797,7 +1910,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D14"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D18" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1812,7 +1925,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D18"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1827,7 +1940,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D7"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D23" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1842,7 +1955,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D23"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1857,7 +1970,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D2"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D13" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1872,7 +1985,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D13"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D19" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1887,7 +2000,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D19"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1902,7 +2015,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D4"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D15" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1917,7 +2030,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D15"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D22" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1932,7 +2045,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D22"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1947,7 +2060,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D6"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D11" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1962,7 +2075,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D11"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D12" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -1977,11 +2090,11 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D12"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D10" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
-position = Vector2( 2848.16, 453.083 )
+position = Vector2( 2884.9, 452.634 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1992,7 +2105,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D10"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2007,7 +2120,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D8"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="StaticBody2D9" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2022,7 +2135,7 @@ scale = Vector2( 0.395694, 0.310739 )
 texture = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/StaticBody2D9"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2038,7 +2151,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block20" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2054,7 +2167,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block20"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block37" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2070,7 +2183,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block37"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block47" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2086,7 +2199,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block47"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block11" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2102,7 +2215,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block11"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block28" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2118,7 +2231,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block28"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block14" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2134,7 +2247,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block14"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block49" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2150,7 +2263,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block49"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block68" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2166,7 +2279,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block68"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block36" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2182,7 +2295,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block36"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block50" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2198,7 +2311,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block50"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block75" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2214,7 +2327,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block75"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block18" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2230,7 +2343,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block18"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block51" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2246,7 +2359,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block51"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block69" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2262,7 +2375,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block69"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block33" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2278,7 +2391,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block33"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block52" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2294,7 +2407,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block52"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block76" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2310,7 +2423,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block76"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block5" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2326,7 +2439,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block5"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block22" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2342,7 +2455,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block22"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block56" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2358,7 +2471,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block56"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block71" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2374,7 +2487,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block71"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block40" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2390,7 +2503,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block40"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block7" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2406,7 +2519,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block7"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block24" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2422,7 +2535,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block24"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block58" type="StaticBody2D" parent="Ground2"]
 position = Vector2( 7028.06, 549.019 )
@@ -2437,7 +2550,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block58"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block78" type="StaticBody2D" parent="Ground2"]
 position = Vector2( 7789.46, 550.481 )
@@ -2452,7 +2565,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block78"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block41" type="StaticBody2D" parent="Ground2"]
 position = Vector2( 2974.78, 549.825 )
@@ -2467,7 +2580,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block41"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block2" type="StaticBody2D" parent="Ground2"]
 position = Vector2( 2807.2, -188.807 )
@@ -2482,9 +2595,10 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block2"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block19" type="StaticBody2D" parent="Ground2"]
+editor/display_folded = true
 position = Vector2( 1941.62, -247.698 )
 __meta__ = {
 "_edit_group_": true
@@ -2497,7 +2611,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block19"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block42" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2513,23 +2627,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block42"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
-
-[node name="Dirt Block48" type="StaticBody2D" parent="Ground2"]
-editor/display_folded = true
-position = Vector2( 4481.93, 319.841 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Ground2/Dirt Block48"]
-position = Vector2( 0.218058, 0.0861748 )
-scale = Vector2( 0.395648, 0.300831 )
-texture = ExtResource( 31 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block48"]
-position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block10" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2545,7 +2643,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block10"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block27" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2561,7 +2659,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block27"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block13" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2577,7 +2675,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block13"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block57" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2593,7 +2691,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block57"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block72" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2609,7 +2707,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block72"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block25" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2625,7 +2723,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block25"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block59" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2641,7 +2739,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block59"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block77" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2657,7 +2755,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block77"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block16" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2673,7 +2771,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block16"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block60" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2689,7 +2787,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block60"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block31" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2705,7 +2803,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block31"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block53" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2721,7 +2819,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block53"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block67" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2737,7 +2835,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block67"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block23" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2753,7 +2851,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block23"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block39" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2769,7 +2867,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block39"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block8" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2785,7 +2883,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block8"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block4" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2801,7 +2899,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block4"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block55" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2817,7 +2915,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block55"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block26" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2833,7 +2931,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block26"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block54" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2849,7 +2947,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block54"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block70" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2865,7 +2963,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block70"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block38" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2881,7 +2979,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block38"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block3" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2897,7 +2995,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block3"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block21" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2913,7 +3011,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block21"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block43" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2929,7 +3027,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block43"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block46" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2945,7 +3043,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block46"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block12" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2961,7 +3059,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block12"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block34" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2977,7 +3075,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block34"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block15" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -2993,7 +3091,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block15"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block62" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3009,7 +3107,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block62"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block79" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3025,7 +3123,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block79"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block30" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3041,7 +3139,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block30"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block17" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3057,7 +3155,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block17"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block61" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3073,7 +3171,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block61"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block83" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3089,7 +3187,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block83"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block32" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3105,7 +3203,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block32"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block6" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3121,11 +3219,11 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block6"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block64" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
-position = Vector2( 6647.36, 452.199 )
+position = Vector2( 6647.36, 453.694 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -3137,7 +3235,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block64"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block82" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3153,7 +3251,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block82"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block35" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3169,7 +3267,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block35"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block63" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3185,7 +3283,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block63"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block80" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3201,7 +3299,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block80"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block44" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3217,7 +3315,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block44"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block9" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3233,7 +3331,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block9"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block65" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3249,7 +3347,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block65"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block81" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3265,7 +3363,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block81"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block29" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3281,7 +3379,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block29"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block66" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3297,7 +3395,7 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block66"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Dirt Block84" type="StaticBody2D" parent="Ground2"]
 editor/display_folded = true
@@ -3313,13 +3411,12 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2/Dirt Block84"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Trees(front)" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Tree (front) 2" type="Sprite" parent="Trees(front)"]
-position = Vector2( 60.6634, 433.317 )
+position = Vector2( 60.6634, 434.147 )
 scale = Vector2( 0.3125, 0.386364 )
 texture = ExtResource( 9 )
 
@@ -3333,18 +3430,23 @@ position = Vector2( 3115.11, 240.902 )
 scale = Vector2( 0.3125, 0.386364 )
 texture = ExtResource( 9 )
 
+[node name="Tree (front) 7" type="Sprite" parent="Trees(front)"]
+position = Vector2( 4547.02, 203.582 )
+scale = Vector2( 0.3125, 0.386364 )
+texture = ExtResource( 9 )
+
 [node name="Tree (front) 5" type="Sprite" parent="Trees(front)"]
-position = Vector2( 6730.29, 336.568 )
+position = Vector2( 6730.29, 337.51 )
 scale = Vector2( 0.3125, 0.386364 )
 texture = ExtResource( 9 )
 
 [node name="Tree (front) 6" type="Sprite" parent="Trees(front)"]
-position = Vector2( 7066.96, 337.018 )
+position = Vector2( 7066.96, 337.384 )
 scale = Vector2( 0.3125, 0.386364 )
 texture = ExtResource( 9 )
 
 [node name="Tree (front)" type="Sprite" parent="Trees(front)"]
-position = Vector2( 683.008, 432.352 )
+position = Vector2( 682.52, 434.061 )
 scale = Vector2( 0.3125, 0.386364 )
 texture = ExtResource( 9 )
 
@@ -3362,14 +3464,13 @@ texture = ExtResource( 31 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Trees(front)/Dirt Block45"]
 position = Vector2( 0.00830078, 0.00665283 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 12620.1, 455.889 )
-shape = SubResource( 9 )
+position = Vector2( 12646.6, 267.737 )
+shape = SubResource( 7 )
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -3383,7 +3484,7 @@ script = ExtResource( 32 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game Props/Grass/Grass"]
 position = Vector2( 263.516, 491.22 )
 scale = Vector2( 0.164059, 0.230744 )
-frames = SubResource( 10 )
+frames = SubResource( 8 )
 animation = "grass"
 
 [node name="Timer" type="Timer" parent="Game Props/Grass/Grass"]
@@ -3392,9 +3493,9 @@ animation = "grass"
 script = ExtResource( 32 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game Props/Grass/Grass3"]
-position = Vector2( 1532.19, 295.841 )
+position = Vector2( 1531.99, 296.835 )
 scale = Vector2( 0.164059, 0.230744 )
-frames = SubResource( 10 )
+frames = SubResource( 8 )
 animation = "grass"
 
 [node name="Timer" type="Timer" parent="Game Props/Grass/Grass3"]
@@ -3405,7 +3506,7 @@ script = ExtResource( 32 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game Props/Grass/Grass4"]
 position = Vector2( 2138.78, 296.811 )
 scale = Vector2( 0.164059, 0.230744 )
-frames = SubResource( 10 )
+frames = SubResource( 8 )
 animation = "grass"
 
 [node name="Timer" type="Timer" parent="Game Props/Grass/Grass4"]
@@ -3414,9 +3515,9 @@ animation = "grass"
 script = ExtResource( 32 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game Props/Grass/Grass5"]
-position = Vector2( 2895.78, 394.289 )
+position = Vector2( 3429.3, 291.285 )
 scale = Vector2( 0.164059, 0.230744 )
-frames = SubResource( 10 )
+frames = SubResource( 8 )
 animation = "grass"
 
 [node name="Timer" type="Timer" parent="Game Props/Grass/Grass5"]
@@ -3427,7 +3528,7 @@ script = ExtResource( 32 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game Props/Grass/Grass6"]
 position = Vector2( 3064.46, 297.67 )
 scale = Vector2( 0.164059, 0.230744 )
-frames = SubResource( 10 )
+frames = SubResource( 8 )
 animation = "grass"
 
 [node name="Timer" type="Timer" parent="Game Props/Grass/Grass6"]
@@ -3438,7 +3539,7 @@ script = ExtResource( 32 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game Props/Grass/Grass7"]
 position = Vector2( 3746.37, 405.646 )
 scale = Vector2( 0.164059, 0.230744 )
-frames = SubResource( 10 )
+frames = SubResource( 8 )
 animation = "grass"
 
 [node name="Timer" type="Timer" parent="Game Props/Grass/Grass7"]
@@ -3447,9 +3548,15 @@ animation = "grass"
 script = ExtResource( 32 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game Props/Grass/Grass8"]
-position = Vector2( 4549.83, 261.333 )
+position = Vector2( 4486.78, 261.146 )
 scale = Vector2( 0.164059, 0.230744 )
-frames = SubResource( 10 )
+frames = SubResource( 8 )
+animation = "grass"
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Game Props/Grass/Grass8"]
+position = Vector2( 4615.3, 261.064 )
+scale = Vector2( 0.164059, 0.230744 )
+frames = SubResource( 8 )
 animation = "grass"
 
 [node name="Timer" type="Timer" parent="Game Props/Grass/Grass8"]
@@ -3460,7 +3567,7 @@ script = ExtResource( 32 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game Props/Grass/Grass9"]
 position = Vector2( 6834.69, 394.962 )
 scale = Vector2( 0.164059, 0.230744 )
-frames = SubResource( 10 )
+frames = SubResource( 8 )
 animation = "grass"
 
 [node name="Timer" type="Timer" parent="Game Props/Grass/Grass9"]
@@ -3469,9 +3576,9 @@ animation = "grass"
 script = ExtResource( 32 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game Props/Grass/Grass10"]
-position = Vector2( 7016.86, 394.709 )
+position = Vector2( 7016.86, 395.075 )
 scale = Vector2( 0.164059, 0.230744 )
-frames = SubResource( 10 )
+frames = SubResource( 8 )
 animation = "grass"
 
 [node name="Timer" type="Timer" parent="Game Props/Grass/Grass10"]
@@ -3482,7 +3589,7 @@ script = ExtResource( 32 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game Props/Grass/Grass11"]
 position = Vector2( 7292.16, 394.929 )
 scale = Vector2( 0.164059, 0.230744 )
-frames = SubResource( 10 )
+frames = SubResource( 8 )
 animation = "grass"
 
 [node name="Timer" type="Timer" parent="Game Props/Grass/Grass11"]
@@ -3493,25 +3600,29 @@ script = ExtResource( 32 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game Props/Grass/Grass12"]
 position = Vector2( 7909.37, 394.66 )
 scale = Vector2( 0.164059, 0.230744 )
-frames = SubResource( 10 )
+frames = SubResource( 8 )
 animation = "grass"
 
 [node name="Timer" type="Timer" parent="Game Props/Grass/Grass12"]
 
 [node name="Grass2" type="Node2D" parent="Game Props/Grass"]
-editor/display_folded = true
 script = ExtResource( 32 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Game Props/Grass/Grass2"]
 position = Vector2( 811.782, 490.814 )
 scale = Vector2( 0.164059, 0.230744 )
-frames = SubResource( 10 )
+frames = SubResource( 8 )
+animation = "grass"
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Game Props/Grass/Grass2"]
+position = Vector2( 16.822, 491.648 )
+scale = Vector2( 0.164059, 0.230744 )
+frames = SubResource( 8 )
 animation = "grass"
 
 [node name="Timer" type="Timer" parent="Game Props/Grass/Grass2"]
 
 [node name="Vines" type="Node2D" parent="Game Props"]
-editor/display_folded = true
 
 [node name="Vine texture10" type="Sprite" parent="Game Props/Vines"]
 position = Vector2( 2243.12, 356.29 )
@@ -3541,6 +3652,21 @@ texture = ExtResource( 35 )
 [node name="Vine texture5" type="Sprite" parent="Game Props/Vines"]
 position = Vector2( 3093.5, 380.093 )
 scale = Vector2( 0.287115, 0.2751 )
+texture = ExtResource( 35 )
+
+[node name="Vine texture13" type="Sprite" parent="Game Props/Vines"]
+position = Vector2( 3772.41, 486.412 )
+scale = Vector2( 0.256635, 0.2751 )
+texture = ExtResource( 35 )
+
+[node name="Vine texture11" type="Sprite" parent="Game Props/Vines"]
+position = Vector2( 4479.36, 323.87 )
+scale = Vector2( 0.256083, 0.203726 )
+texture = ExtResource( 35 )
+
+[node name="Vine texture12" type="Sprite" parent="Game Props/Vines"]
+position = Vector2( 4606.94, 340.95 )
+scale = Vector2( 0.255048, 0.270935 )
 texture = ExtResource( 35 )
 
 [node name="Vine texture4" type="Sprite" parent="Game Props/Vines"]
@@ -3576,7 +3702,7 @@ scale = Vector2( 0.301919, 0.310102 )
 texture = ExtResource( 37 )
 
 [node name="Rock" type="Sprite" parent="Game Props/Other Game Props"]
-position = Vector2( 6631.76, 384.255 )
+position = Vector2( 6631.86, 385.249 )
 texture = ExtResource( 38 )
 
 [node name="Dead bush2" type="Sprite" parent="Game Props/Other Game Props"]
@@ -3602,7 +3728,7 @@ texture = ExtResource( 38 )
 [node name="Spikes" type="Node2D" parent="Game Props"]
 
 [node name="StaticBody2D4" type="Area2D" parent="Game Props/Spikes"]
-position = Vector2( 1242.05, 466.444 )
+position = Vector2( 1244.19, 469.15 )
 scale = Vector2( 0.275908, 0.290789 )
 __meta__ = {
 "_edit_group_": true
@@ -3613,10 +3739,11 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D4"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
+one_way_collision_margin = 0.0
 
 [node name="StaticBody2D5" type="Area2D" parent="Game Props/Spikes"]
-position = Vector2( 2437.63, 468.283 )
+position = Vector2( 2882.92, 372.253 )
 scale = Vector2( 0.275908, 0.290789 )
 __meta__ = {
 "_edit_group_": true
@@ -3627,10 +3754,10 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D5"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D6" type="Area2D" parent="Game Props/Spikes"]
-position = Vector2( 5156.71, 276.468 )
+position = Vector2( 4960.92, 275.805 )
 scale = Vector2( 0.275908, 0.290789 )
 __meta__ = {
 "_edit_group_": true
@@ -3641,7 +3768,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D6"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D7" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 5605.78, 469.565 )
@@ -3655,10 +3782,10 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D7"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D8" type="Area2D" parent="Game Props/Spikes"]
-position = Vector2( 6213.16, 471.37 )
+position = Vector2( 5468.16, 372.019 )
 scale = Vector2( 0.275908, 0.290789 )
 __meta__ = {
 "_edit_group_": true
@@ -3669,7 +3796,21 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D8"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
+
+[node name="StaticBody2D37" type="Area2D" parent="Game Props/Spikes"]
+position = Vector2( 7144.53, 372.918 )
+scale = Vector2( 0.275908, 0.290789 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spike" type="Sprite" parent="Game Props/Spikes/StaticBody2D37"]
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D37"]
+position = Vector2( -2.40479, 17.2789 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D9" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8135.17, 468.828 )
@@ -3683,7 +3824,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D9"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D11" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8224.61, 469.135 )
@@ -3697,7 +3838,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D11"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D14" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8311.9, 469.135 )
@@ -3711,7 +3852,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D14"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D16" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8402.88, 468.828 )
@@ -3725,7 +3866,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D16"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D18" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8492.62, 468.828 )
@@ -3739,7 +3880,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D18"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D19" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8581.14, 468.828 )
@@ -3753,7 +3894,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D19"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D22" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8668.43, 469.135 )
@@ -3767,7 +3908,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D22"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D24" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8759.49, 468.776 )
@@ -3781,7 +3922,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D24"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D25" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8849.11, 469.135 )
@@ -3795,7 +3936,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D25"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D27" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8940.88, 468.777 )
@@ -3809,7 +3950,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D27"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D30" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 9032.65, 469.135 )
@@ -3823,7 +3964,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D30"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D31" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 9123.71, 468.777 )
@@ -3837,7 +3978,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D31"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D33" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 9213.33, 469.135 )
@@ -3851,7 +3992,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D33"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D35" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 9301.16, 468.777 )
@@ -3865,7 +4006,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D35"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D10" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8178.2, 468.828 )
@@ -3879,7 +4020,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D10"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D12" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8267.64, 469.135 )
@@ -3893,7 +4034,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D12"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D13" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8354.93, 469.135 )
@@ -3907,7 +4048,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D13"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D15" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8445.91, 468.828 )
@@ -3921,7 +4062,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D15"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D17" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8535.65, 468.828 )
@@ -3935,7 +4076,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D17"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D20" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8624.17, 468.828 )
@@ -3949,7 +4090,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D20"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D21" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8711.46, 469.135 )
@@ -3963,7 +4104,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D21"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D23" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8802.52, 468.776 )
@@ -3977,7 +4118,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D23"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D26" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8892.14, 469.135 )
@@ -3991,7 +4132,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D26"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D28" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 8983.91, 468.777 )
@@ -4005,7 +4146,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D28"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D29" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 9075.69, 469.135 )
@@ -4019,7 +4160,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D29"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D32" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 9166.74, 468.777 )
@@ -4033,7 +4174,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D32"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D34" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 9256.36, 469.135 )
@@ -4047,7 +4188,7 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D34"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="StaticBody2D36" type="Area2D" parent="Game Props/Spikes"]
 position = Vector2( 9344.19, 468.777 )
@@ -4061,7 +4202,147 @@ texture = ExtResource( 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D36"]
 position = Vector2( -2.40479, 17.2789 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
+
+[node name="StaticBody2D38" type="Area2D" parent="Game Props/Spikes"]
+position = Vector2( 10560.9, 547.917 )
+scale = Vector2( 0.275908, 0.290789 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spike" type="Sprite" parent="Game Props/Spikes/StaticBody2D38"]
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D38"]
+position = Vector2( -2.40479, 17.2789 )
+shape = SubResource( 9 )
+
+[node name="StaticBody2D39" type="Area2D" parent="Game Props/Spikes"]
+position = Vector2( 10520.6, 547.917 )
+scale = Vector2( 0.275908, 0.290789 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spike" type="Sprite" parent="Game Props/Spikes/StaticBody2D39"]
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D39"]
+position = Vector2( -2.40479, 17.2789 )
+shape = SubResource( 9 )
+
+[node name="StaticBody2D40" type="Area2D" parent="Game Props/Spikes"]
+position = Vector2( 10483.6, 548.092 )
+scale = Vector2( 0.275908, 0.290789 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spike" type="Sprite" parent="Game Props/Spikes/StaticBody2D40"]
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D40"]
+position = Vector2( -2.40479, 17.2789 )
+shape = SubResource( 9 )
+
+[node name="StaticBody2D41" type="Area2D" parent="Game Props/Spikes"]
+position = Vector2( 10598.2, 548.58 )
+scale = Vector2( 0.275908, 0.290789 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spike" type="Sprite" parent="Game Props/Spikes/StaticBody2D41"]
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D41"]
+position = Vector2( -2.40479, 17.2789 )
+shape = SubResource( 9 )
+
+[node name="StaticBody2D42" type="Area2D" parent="Game Props/Spikes"]
+position = Vector2( 10638, 549.068 )
+scale = Vector2( 0.275908, 0.290789 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spike" type="Sprite" parent="Game Props/Spikes/StaticBody2D42"]
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D42"]
+position = Vector2( -2.40479, 17.2789 )
+shape = SubResource( 9 )
+
+[node name="StaticBody2D43" type="Area2D" parent="Game Props/Spikes"]
+position = Vector2( 10677, 548.58 )
+scale = Vector2( 0.275908, 0.290789 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spike" type="Sprite" parent="Game Props/Spikes/StaticBody2D43"]
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D43"]
+position = Vector2( -2.40479, 17.2789 )
+shape = SubResource( 9 )
+
+[node name="StaticBody2D44" type="Area2D" parent="Game Props/Spikes"]
+position = Vector2( 11712.6, 372.738 )
+scale = Vector2( 0.275908, 0.290789 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spike" type="Sprite" parent="Game Props/Spikes/StaticBody2D44"]
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D44"]
+position = Vector2( -2.40479, 17.2789 )
+shape = SubResource( 9 )
+
+[node name="StaticBody2D45" type="Area2D" parent="Game Props/Spikes"]
+position = Vector2( 11763.1, 373.247 )
+scale = Vector2( 0.275908, 0.290789 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spike" type="Sprite" parent="Game Props/Spikes/StaticBody2D45"]
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D45"]
+position = Vector2( -2.40479, 17.2789 )
+shape = SubResource( 9 )
+
+[node name="StaticBody2D46" type="Area2D" parent="Game Props/Spikes"]
+position = Vector2( 12218.4, 474.506 )
+scale = Vector2( 0.275908, 0.290789 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spike" type="Sprite" parent="Game Props/Spikes/StaticBody2D46"]
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D46"]
+position = Vector2( -2.40479, 17.2789 )
+shape = SubResource( 9 )
+
+[node name="StaticBody2D47" type="Area2D" parent="Game Props/Spikes"]
+position = Vector2( 12265.2, 474.969 )
+scale = Vector2( 0.275908, 0.290789 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Spike" type="Sprite" parent="Game Props/Spikes/StaticBody2D47"]
+texture = ExtResource( 40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game Props/Spikes/StaticBody2D47"]
+position = Vector2( -2.40479, 17.2789 )
+shape = SubResource( 9 )
 
 [node name="Moving Platforms" type="Node2D" parent="."]
 editor/display_folded = true
@@ -4074,11 +4355,25 @@ position = Vector2( 11058.3, 353.257 )
 
 [node name="KinematicBody2D2" parent="Moving Platforms" instance=ExtResource( 42 )]
 position = Vector2( 10010.8, 353.257 )
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer2" instance=ExtResource( 43 )]
+visible = false
 [connection signal="body_entered" from="enemies/Enemy1" to="Player" method="_on_Enemy_body_entered"]
-[connection signal="body_entered" from="enemies/Enemy" to="Player" method="_on_Enemy_body_entered"]
-[connection signal="body_entered" from="enemies/Enemy2" to="Player" method="_on_Enemy2_body_entered"]
-[connection signal="body_entered" from="enemies/Enemy3" to="Player" method="_on_Enemy2_body_entered"]
+[connection signal="body_entered" from="enemies/Enemy2" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="enemies/Enemy(backwards)/RigidBody2D" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="enemies/Enemy(backwards)/RigidBody2D2" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="enemies/Enemy(backwards)/RigidBody2D3" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="enemies/Enemy(smallpathbackwards)/RigidBody2D" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="enemies/Enemy(second)/RigidBody2D" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="enemies/Enemy(second)/RigidBody2D5" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="enemies/Enemy(second)/RigidBody2D2" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="enemies/Enemy(second)/RigidBody2D6" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="enemies/Enemy(second)/RigidBody2D3" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="enemies/Enemy(second)/RigidBody2D4" to="Player" method="_on_Enemy_body_entered"]
 [connection signal="animation_finished" from="Player/AnimatedSprite" to="Player" method="_on_AnimatedSprite_animation_finished"]
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="Player" method="_on_Area2D_body_entered"]
 [connection signal="ready" from="Game Props/Grass/Grass/Timer" to="Game Props/Grass/Grass" method="_on_Timer_ready"]
 [connection signal="ready" from="Game Props/Grass/Grass3/Timer" to="Game Props/Grass/Grass3" method="_on_Timer_ready"]
@@ -4092,36 +4387,47 @@ position = Vector2( 10010.8, 353.257 )
 [connection signal="ready" from="Game Props/Grass/Grass11/Timer" to="Game Props/Grass/Grass11" method="_on_Timer_ready"]
 [connection signal="ready" from="Game Props/Grass/Grass12/Timer" to="Game Props/Grass/Grass12" method="_on_Timer_ready"]
 [connection signal="ready" from="Game Props/Grass/Grass2/Timer" to="Game Props/Grass/Grass2" method="_on_Timer_ready"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D4" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D5" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D6" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D7" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D8" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D9" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D11" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D14" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D16" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D18" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D19" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D22" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D24" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D25" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D27" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D30" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D31" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D33" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D35" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D10" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D12" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D13" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D15" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D17" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D20" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D21" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D23" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D26" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D28" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D29" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D32" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D34" to="Player" method="_on_StaticBody2D4_body_entered"]
-[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D36" to="Player" method="_on_StaticBody2D4_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D4" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D5" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D6" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D7" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D8" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D37" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D9" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D11" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D14" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D16" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D18" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D19" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D22" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D24" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D25" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D27" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D30" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D31" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D33" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D35" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D10" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D12" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D13" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D15" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D17" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D20" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D21" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D23" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D26" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D28" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D29" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D32" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D34" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D36" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D38" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D39" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D40" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D41" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D42" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D43" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D44" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D45" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D46" to="Player" method="_on_Enemy_body_entered"]
+[connection signal="body_entered" from="Game Props/Spikes/StaticBody2D47" to="Player" method="_on_Enemy_body_entered"]

@@ -2,14 +2,15 @@ extends KinematicBody2D
 
 const SPEED = 250
 const GRAVITY = 10
+const GRAVITY2 = 100
 const JUMP_POWER = -500
 const FLOOR = Vector2(0, -1)
 
-onready var Boss = get_node("root/boss")
-
+onready var Boss = get_node("root/Boss")
 const PLASMABLAST = preload("res://Scenes/PlasmaBlast.tscn")
 
 onready var World = get_node("/root/game")
+
 
 var velocity = Vector2()
 
@@ -45,12 +46,12 @@ func _physics_process(delta):
 		if is_attacking == false:
 			if on_ground == true:
 				velocity.y = JUMP_POWER
-				on_ground = false
 				$AnimatedSprite.play("jump")
+				on_ground == false
 	if Input.is_action_just_pressed("shoot") && is_attacking == false:
 		if is_on_floor():
 			velocity.x = 0
-		is_attacking = true
+			is_attacking = true
 		$AnimatedSprite.play("attack")
 		var plasmablast = PLASMABLAST.instance()
 		if sign($Position2D.position.x) == 1:
@@ -65,7 +66,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		if on_ground == false:
 			is_attacking = false
-		on_ground = true
+			on_ground = true
 	else:
 		if is_attacking == false:
 			on_ground = false
@@ -73,6 +74,8 @@ func _physics_process(delta):
 			get_tree().change_scene("res://Scenes/YouLose.tscn")
 	
 	velocity = move_and_slide(velocity, FLOOR)
+	
+	
 
 
 	
@@ -107,6 +110,33 @@ func _on_Enemy_body_entered(body):
 
 
 
+func _on_Boss_body_entered(body):
+	if can_move:
+		Boss.update_lives(-1)
+		velocity *= -1
+		velocity.y = jump_speed
+		move_and_slide(velocity, Vector2.UP, true)
+		can_move = false
+	yield(get_tree().create_timer(1), "timeout")
+	can_move = true
+		
+
+
+func _on_Boss2_body_entered(body):
+	if can_move:
+		Boss.update_lives(-1)
+		velocity *= -1
+		velocity.y = jump_speed
+		move_and_slide(velocity, Vector2.UP, true)
+		can_move = false
+	yield(get_tree().create_timer(1), "timeout")
+	can_move = true
 
 
 
+func _on_RigidBody2D_body_entered(body):
+	Boss.update_lives(-1)
+	velocity *= -1
+	velocity.y = jump_speed
+	move_and_slide(velocity, Vector2.UP, true)
+	yield(get_tree().create_timer(1), "timeout")

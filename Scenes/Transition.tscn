@@ -38,7 +38,7 @@ stream = ExtResource( 1 )
 autoplay = true
 
 [node name="KinematicBody2D" type="Area2D" parent="Node2D"]
-position = Vector2( 482.85, 109.25 )
+position = Vector2( 56.3001, 105.45 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true

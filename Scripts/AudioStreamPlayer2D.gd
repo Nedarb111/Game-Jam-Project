@@ -7,3 +7,6 @@ func _ready():
 	
 func _on_Finished():
 	play()
+	
+	
+	

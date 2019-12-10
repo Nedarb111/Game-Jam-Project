@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Soul Calibur II- History Unfolds (Character Select).wav-76574686db8f927bb000e6a53b34780d.sample"
+
+[deps]
+
+source_file="res://Assets/Soul Calibur II- History Unfolds (Character Select).wav"
+dest_files=[ "res://.import/Soul Calibur II- History Unfolds (Character Select).wav-76574686db8f927bb000e6a53b34780d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
