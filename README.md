@@ -9,3 +9,7 @@ In order to progress through scenes, please click the buttons that say "click he
 Although we wanted to, we did not have enough time to program enemies, but we did animate a boss for the second level.
 
 Thank you for checking out our game, hope you enjoy!
+
+
+
+**We actually have the full game done now :)**
